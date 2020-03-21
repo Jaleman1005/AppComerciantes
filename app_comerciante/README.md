@@ -1,4 +1,4 @@
-# app_comerciante
+# tests
 
 A new Flutter project.
 
