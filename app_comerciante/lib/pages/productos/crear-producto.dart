@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+final _formKey = GlobalKey<FormState>();
+
 class CrearProducto extends StatelessWidget {
   const CrearProducto({Key key}) : super(key: key);
 
@@ -12,22 +14,67 @@ class CrearProducto extends StatelessWidget {
       ),
       body: ListView(
         padding: EdgeInsets.all(20),
-            children: <Widget>[
-              Text('Nombre del producto', style: TextStyle(fontSize: 15)),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
+        children: <Widget>[
+          Form(
+            key: _formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                TextFormField(
+                  maxLength: 30,
+                  decoration: const InputDecoration(
+                    hintText: 'Nombre del producto',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Por favor inserte el nombre';
+                    }
+                    return null;
+                  },
+                ),
+                Text(''),
+                TextFormField(
+                  maxLength: 150,
+                  maxLines: 4,
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Nombre del producto'),
-              ),
-              Text(''),
-              Text('Descripción del producto', style: TextStyle(fontSize: 15)),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
+                    hintText: 'Descripción del producto',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Por favor inserte la descripción';
+                    }
+                    return null;
+                  },
+                ),
+                Text(''),
+                TextFormField(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(),
-                    labelText: 'Descripción del producto'),
-              ),
+                    hintText: 'Subir archivo',
+                  ),
+                  validator: (value) {
+                    if (value.isEmpty) {
+                      return 'Por favor suba el archivo';
+                    }
+                    return null;
+                  },
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 16.0),
+                  child: RaisedButton(
+                    color: Colors.blue,
+                    onPressed: () {
+                      if (_formKey.currentState.validate()) {
+                        
+                      }
+                    },
+                    child: Text('Enviar', style: TextStyle(fontSize: 15, color: Colors.white)),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

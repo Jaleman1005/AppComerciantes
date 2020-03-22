@@ -1,7 +1,5 @@
-import 'package:app_comerciante/pages/productos/crear-producto.dart';
 import 'package:flutter/material.dart';
 
-import 'package:app_comerciante/pages/productos/vista-productos.dart';
 
 class Perfil extends StatelessWidget {
   const Perfil({Key key}) : super(key: key);
@@ -20,46 +18,11 @@ class Perfil extends StatelessWidget {
               VistaFondoPerfil(),
               SumaPatrocinadoresProductos(),
               Descripcion(),
-              RedireccionProductos(),
             ],
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => CrearProducto()),
-          );
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue,
-      ),
     );
-  }
-}
-
-class RedireccionProductos extends StatelessWidget {
-  const RedireccionProductos({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return FlatButton(
-        color: Colors.blue,
-        textColor: Colors.white,
-        disabledColor: Colors.grey,
-        disabledTextColor: Colors.black,
-        padding: EdgeInsets.all(8),
-        splashColor: Colors.blueAccent,
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => VistaProductos()),
-          );
-        },
-        child: Text('Mis Productos', style: TextStyle(fontSize: 20)));
   }
 }
 
