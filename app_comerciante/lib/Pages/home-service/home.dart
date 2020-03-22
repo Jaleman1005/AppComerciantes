@@ -1,65 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:tests/Pages/evento-service/evento.dart';
+import 'package:tests/Pages/perfil-service/perfil.dart';
+import 'package:tests/Pages/productos-service/crear-producto.dart';
+import 'package:tests/Pages/productos-service/vista-productos.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(HomePage());
+}
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: DefaultTabController(
+        length: 4,
+        child: Scaffold(
+          appBar: AppBar(
+            bottom: TabBar(
+              tabs: [
+                Tab(icon: Icon(Icons.home)),
+                Tab(icon: Icon(Icons.stars)),
+                Tab(icon: Icon(Icons.event)),
+                Tab(icon: Icon(Icons.perm_identity)),
+              ],
+            ),
+            title: Text('APP-COMERCIANTE'),
+          ),
+          body: TabBarView(
+            children: [
+              EventoPage(),
+              CrearProductoPage(),
+              VistaProductosPage(),
+              PerfilPage(),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
-
-  class HomePage extends StatefulWidget {
-      const HomePage({ Key key }) : super(key: key);
-      @override
-      _HomePageState createState() => _HomePageState();
-    }
-
-    class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
-      final List<Tab> myTabs = <Tab>[
-        Tab(text: 'Perfil'),
-        Tab(text: 'Eventos'),
-        Tab(text: 'Calendario'),
-      ];
-
-      TabController _tabController;
-
-      @override
-      void initState() {
-        super.initState();
-        _tabController = TabController(vsync: this, length: myTabs.length);
-      }
-
-    @override
-    void dispose() {
-      _tabController.dispose();
-      super.dispose();
-    }
-
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              controller: _tabController,
-              tabs: myTabs,
-            ),
-          ),
-          body: TabBarView(
-            controller: _tabController,
-            children: myTabs.map((Tab tab) {
-              final String label = tab.text.toLowerCase();
-              return Center(
-                child: Text(
-                  'This is the $label tab',
-                  style: const TextStyle(fontSize: 36),
-                ),
-              );
-            }).toList(),
-          ),
-        );
-      }
-    }

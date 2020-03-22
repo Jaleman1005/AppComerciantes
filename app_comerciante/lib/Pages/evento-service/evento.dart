@@ -1,65 +1,109 @@
+// Flutter code sample for Card
+
+// This sample shows creation of a [Card] widget that can be tapped. When
+// tapped this [Card]'s [InkWell] displays an "ink splash" that fills the
+// entire card.
+
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(EventoPage());
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+/// This Widget is the main application widget.
+class EventoPage extends StatelessWidget {
+  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomePage(),
+      home: Scaffold(
+        body: MyStatelessWidget(),
+      ),
     );
   }
 }
 
-  class HomePage extends StatefulWidget {
-      const HomePage({ Key key }) : super(key: key);
-      @override
-      _HomePageState createState() => _HomePageState();
-    }
+/// This is the stateless widget that the main application instantiates.
+class MyStatelessWidget extends StatelessWidget {
+  MyStatelessWidget({Key key}) : super(key: key);
 
-    class _HomePageState extends State<HomePage> with SingleTickerProviderStateMixin {
-      final List<Tab> myTabs = <Tab>[
-        Tab(text: 'Perfil'),
-        Tab(text: 'Eventos'),
-        Tab(text: 'Calendario'),
-      ];
-
-      TabController _tabController;
-
-      @override
-      void initState() {
-        super.initState();
-        _tabController = TabController(vsync: this, length: myTabs.length);
-      }
-
-    @override
-    void dispose() {
-      _tabController.dispose();
-      super.dispose();
-    }
-
-      @override
-      Widget build(BuildContext context) {
-        return Scaffold(
-          appBar: AppBar(
-            bottom: TabBar(
-              controller: _tabController,
-              tabs: myTabs,
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Card(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            const ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text('Nombre del evento'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
             ),
-          ),
-          body: TabBarView(
-            controller: _tabController,
-            children: myTabs.map((Tab tab) {
-              final String label = tab.text.toLowerCase();
-              return Center(
-                child: Text(
-                  'This is the $label tab',
-                  style: const TextStyle(fontSize: 36),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: const Text('BUY TICKETS'),
+                  onPressed: () { /* ... */ },
                 ),
-              );
-            }).toList(),
-          ),
-        );
-      }
-    }
+                FlatButton(
+                  child: const Text('LISTEN'),
+                  onPressed: () { /* ... */ },
+                ),
+              ],
+            ),
+            const ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text('Nombre del evento'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: const Text('BUY TICKETS'),
+                  onPressed: () { /* ... */ },
+                ),
+                FlatButton(
+                  child: const Text('LISTEN'),
+                  onPressed: () { /* ... */ },
+                ),
+              ],
+            ),
+            const ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text('Nombre del evento'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: const Text('BUY TICKETS'),
+                  onPressed: () { /* ... */ },
+                ),
+                FlatButton(
+                  child: const Text('LISTEN'),
+                  onPressed: () { /* ... */ },
+                ),
+              ],
+            ),
+            const ListTile(
+              leading: Icon(Icons.event_note),
+              title: Text('Nombre del evento'),
+              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+            ),
+            ButtonBar(
+              children: <Widget>[
+                FlatButton(
+                  child: const Text('BUY TICKETS'),
+                  onPressed: () { /* ... */ },
+                ),
+                FlatButton(
+                  child: const Text('LISTEN'),
+                  onPressed: () { /* ... */ },
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

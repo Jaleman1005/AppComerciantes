@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tests/Pages/evento-service/evento.dart';
-import 'package:tests/Pages/registro-service/registro.dart';
+import 'package:tests/Pages/home-service/home.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,7 +9,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'APP-COMERCIANTE',
       theme: new ThemeData(
-        primarySwatch: Colors.red
+        primarySwatch: Colors.black
       ),
       home: new LoginPage(),
     );
@@ -93,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: (){
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RegistroPage()),
+                  MaterialPageRoute(builder: (context) => HomePage()),
                 );
               }, 
               )
