@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:app_comerciante/pages/Perfil/perfil.dart';
+import 'package:app_comerciante/pages/productos/crear-producto.dart';
 
 void main() => runApp(MyApp());
 
@@ -42,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      CrearProducto();
     });
   }
 
