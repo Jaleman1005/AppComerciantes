@@ -1,107 +1,45 @@
-// Flutter code sample for Card
-
-// This sample shows creation of a [Card] widget that can be tapped. When
-// tapped this [Card]'s [InkWell] displays an "ink splash" that fills the
-// entire card.
-
 import 'package:flutter/material.dart';
 
-void main() => runApp(EventoPage());
 
-/// This Widget is the main application widget.
-class EventoPage extends StatelessWidget {
-  
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: MyStatelessWidget(),
-      ),
-    );
-  }
+void main(){
+  runApp(new MaterialApp(
+    home: new EventoPage(),
+  ));
 }
 
-/// This is the stateless widget that the main application instantiates.
-class MyStatelessWidget extends StatelessWidget {
-  MyStatelessWidget({Key key}) : super(key: key);
+class EventoPage extends StatefulWidget {
+  @override
+  _State createState() => new _State();
+}
+
+//State is information of the application that can change over time or when some actions are taken.
+class _State extends State<EventoPage>{
+
+  /*
+  1. Create a directory called images and add your image there
+  2. In pubspec.yamp add dependency for using assets
+  */
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Card(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-            const ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text('Nombre del evento'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () { /* ... */ },
-                ),
-                FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () { /* ... */ },
-                ),
-              ],
-            ),
-            const ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text('Nombre del evento'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () { /* ... */ },
-                ),
-                FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () { /* ... */ },
-                ),
-              ],
-            ),
-            const ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text('Nombre del evento'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () { /* ... */ },
-                ),
-                FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () { /* ... */ },
-                ),
-              ],
-            ),
-            const ListTile(
-              leading: Icon(Icons.event_note),
-              title: Text('Nombre del evento'),
-              subtitle: Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
-            ),
-            ButtonBar(
-              children: <Widget>[
-                FlatButton(
-                  child: const Text('BUY TICKETS'),
-                  onPressed: () { /* ... */ },
-                ),
-                FlatButton(
-                  child: const Text('LISTEN'),
-                  onPressed: () { /* ... */ },
-                ),
-              ],
-            ),
-          ],
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text('Name here'),
+        backgroundColor: Colors.red,
+      ),
+      //hit Ctrl+space in intellij to know what are the options you can use in flutter widgets
+      body: new Container(
+        padding: new EdgeInsets.all(32.0),
+        child: new Center(
+          child: new Column(
+            children: <Widget>[
+              new Text('Image from assets'),
+              new Image.asset('images/flutter.png'),
+              new Text('Image from network'),
+              //this image was outside the screen so we are using Expanded which will fit the image into the screen
+              new Expanded(child: new Image.network('https://static.makeuseof.com/wp-content/uploads/2012/10/flutter-logo.jpg'))
+            ],
+          ),
         ),
       ),
     );

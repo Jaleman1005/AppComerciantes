@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tests/Pages/home-service/home.dart';
+import 'package:tests/Pages/registro-service/registro.dart';
 
 void main() => runApp(new MyApp());
 
@@ -92,7 +93,7 @@ class _LoginPageState extends State<LoginPage> {
               onPressed: (){
                   Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => HomePage()),
+                  MaterialPageRoute(builder: (context) => RegistroPage()),
                 );
               }, 
               )
