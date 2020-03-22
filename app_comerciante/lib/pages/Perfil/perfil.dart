@@ -10,7 +10,28 @@ class Perfil extends StatelessWidget {
         title: Text('Titulo'),
         centerTitle: true,
       ),
-      body: VistaFondoPerfil()
+      body: Column(
+        children: <Widget>[
+          VistaFondoPerfil(),
+          SumaPatrocinadoresProductos(),
+          Text('Llevo viviendo en el campo toda mi vida, me crie con mi madre la cual fue campesina, mis 3 hermanos y 2 hermanas, ellos viven en la ciudad y gracias a ellos me entere de esta alternativa para vender los productos que me brinda la finca.'),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Image.asset('assets/arroz.jpg')
+              ),
+              Expanded(
+                child: Image.asset('assets/papas.jpg')
+              ),
+              Expanded(
+                child: Image.asset('assets/trigo.jpg')
+              ),
+              
+            ],
+          ),
+        ],
+      )
     );
   }
 }
@@ -50,7 +71,6 @@ class VistaFondoPerfil extends StatelessWidget {
             ],
           ),
         ),
-        SumaPatrocinadoresProductos(),
       ],
     );
   }

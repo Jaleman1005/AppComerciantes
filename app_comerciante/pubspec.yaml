@@ -44,6 +44,9 @@ flutter:
   assets:
     - assets/fondo.jpg
     - assets/perfil.jpg
+    - assets/papas.jpg
+    - assets/arroz.jpg
+    - assets/trigo.jpg
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 
