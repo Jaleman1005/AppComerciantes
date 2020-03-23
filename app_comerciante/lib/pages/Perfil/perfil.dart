@@ -1,3 +1,4 @@
+import 'package:app_comerciante/pages/login-service/login.dart';
 import 'package:flutter/material.dart';
 
 
@@ -21,6 +22,16 @@ class Perfil extends StatelessWidget {
             ],
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+          );
+        },
+        child: Icon(Icons.exit_to_app),
+        backgroundColor: Colors.blue,
       ),
     );
   }

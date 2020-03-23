@@ -18,11 +18,12 @@ class HomePage extends StatelessWidget {
         child: Scaffold(
           appBar: AppBar(
             bottom: TabBar(
+              
               tabs: [
-                Tab(icon: Icon(Icons.home)),
-                Tab(icon: Icon(Icons.stars)),
-                Tab(icon: Icon(Icons.event)),
-                Tab(icon: Icon(Icons.perm_identity)),
+                Tab(icon: Icon(Icons.home), text: 'Home'),
+                Tab(icon: Icon(Icons.add), text: 'Crear'),
+                Tab(icon: Icon(Icons.fastfood), text: 'Productos'),
+                Tab(icon: Icon(Icons.perm_identity), text: 'Perfil'),
               ],
             ),
             title: Text('APP-COMERCIANTE'),

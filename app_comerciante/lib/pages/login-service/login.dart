@@ -50,6 +50,7 @@ class _LoginPageState extends State<LoginPage> {
                 labelText: 'Correo',
               ),
             ),
+            Text(''),
             TextField(
               obscureText: true,
               decoration: InputDecoration(
