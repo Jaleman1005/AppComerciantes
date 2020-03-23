@@ -1,3 +1,4 @@
+import 'package:app_comerciante/pages/login-service/login.dart';
 import 'package:app_comerciante/pages/productos/crear-producto.dart';
 import 'package:app_comerciante/pages/productos/vista-productos.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +12,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyStatefulWidget(),
+      home: LoginPage(),
     );
   }
 }
