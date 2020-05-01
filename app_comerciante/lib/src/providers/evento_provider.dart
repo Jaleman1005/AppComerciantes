@@ -6,17 +6,17 @@ import 'package:mime_type/mime_type.dart';
 import 'package:http_parser/http_parser.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:formvalidation/src/models/producto_model.dart';
+import 'package:formvalidation/src/models/evento_model.dart';
 
-class ProductosProvider {
+class EventosProvider {
 
   final String _url = 'https://appcomerciantes.firebaseio.com';
 
-  Future<bool> crearProducto( ProductoModel producto ) async {
+  Future<bool> crearEvento( EventoModel evento ) async {
     
-    final url = '$_url/productos.json';
+    final url = '$_url/eventos.json';
 
-    final resp = await http.post( url, body: productoModelToJson(producto) );
+    final resp = await http.post( url, body: eventoModelToJson(evento) );
 
     final decodedData = json.decode(resp.body);
 
@@ -26,11 +26,11 @@ class ProductosProvider {
 
   }
 
-    Future<bool> editarProducto( ProductoModel producto ) async {
+    Future<bool> editarEvento( EventoModel evento ) async {
     
-    final url = '$_url/productos/${ producto.id }.json';
+    final url = '$_url/productos/${ evento.id }.json';
 
-    final resp = await http.put( url, body: productoModelToJson(producto) );
+    final resp = await http.put( url, body: eventoModelToJson(evento) );
 
     final decodedData = json.decode(resp.body);
 
@@ -40,29 +40,29 @@ class ProductosProvider {
 
   }
 
-  Future<List<ProductoModel>> cargarProductos() async {
+  Future<List<EventoModel>> cargarEventos() async {
 
-    final url  = '$_url/productos.json';
+    final url  = '$_url/eventos.json';
     final resp = await http.get(url);
 
     final Map<String, dynamic> decodedData = json.decode(resp.body);
-    final List<ProductoModel> productos = new List();
+    final List<EventoModel> eventos = new List();
 
 
     if ( decodedData == null ) return [];
 
     decodedData.forEach( ( id, prod ){
 
-      final prodTemp = ProductoModel.fromJson(prod);
-      prodTemp.id = id;
+      final eventTemp = EventoModel.fromJson(prod);
+      eventTemp.id = id;
 
-      productos.add( prodTemp );
+      eventos.add( eventTemp );
 
     });
 
     // print( productos[0].id );
 
-    return productos;
+    return eventos;
 
   }
 

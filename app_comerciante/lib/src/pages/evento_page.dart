@@ -1,8 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:formvalidation/src/models/producto_model.dart';
-import 'package:formvalidation/src/providers/productos_provider.dart';
-//import 'package:formvalidation/src/bloc/validators.dart';
-//import 'package:formvalidation/src/utils/utils.dart' as utils ;
+import 'package:image_picker/image_picker.dart';
+
+
+import 'package:formvalidation/src/models/evento_model.dart';
+import 'package:formvalidation/src/providers/evento_provider.dart';
+import 'package:formvalidation/src/utils/utils.dart' as utils;
+
 
 class EventoPage extends StatefulWidget {
 
@@ -12,158 +17,156 @@ class EventoPage extends StatefulWidget {
 
 class _EventoPageState extends State<EventoPage> {
   
-  final formKey = GlobalKey<FormState>();
-  final productoProvider = new ProductosProvider(); 
-  
-  
-  ProductoModel producto = new ProductoModel();
-  
+  final formKey     = GlobalKey<FormState>();
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  final eventoProvider = new EventosProvider();
+
+  EventoModel evento = new EventoModel();
+  bool _guardando = false;
+  File foto;
+
   @override
   Widget build(BuildContext context) {
+
+    final EventoModel prodData = ModalRoute.of(context).settings.arguments;
+    if ( prodData != null ) {
+      evento = prodData;
+    }
     
     return Scaffold(
+      key: scaffoldKey,
       appBar: AppBar(
-        title: Text('Crear Eventos'),
+        title: Text('Evento'),
         actions: <Widget>[
           IconButton(
-            icon: Icon(Icons.photo_size_select_actual), 
-            onPressed: (){},
-            ),
-            IconButton(
-            icon: Icon(Icons.camera_alt), 
-            onPressed: (){},
-            )
-        ]
+            icon: Icon( Icons.photo_size_select_actual ),
+            onPressed: _seleccionarFoto,
+          ),
+          IconButton(
+            icon: Icon( Icons.camera_alt ),
+            onPressed: _tomarFoto,
+          ),
+        ],
       ),
       body: SingleChildScrollView(
-          child: Container(
-            padding: EdgeInsets.all(15.0),
-            child: Form(
-              key: formKey,
-              child: Column(
-                children: <Widget>[
-                  _crearNombre(),
-                  _crearPrecio(),
-                  _crearCategoria(),
-                  _crearUbicacion(),
-                  _crearDescripcion(),
-                  _crearDisponible(),
-                  _crearBoton(),
-                ],
-              ),
+        child: Container(
+          padding: EdgeInsets.all(15.0),
+          child: Form(
+            key: formKey,
+            child: Column(
+              children: <Widget>[
+                _mostrarFoto(),
+                _crearNombre(),
+                _crearUbicacion(),
+                _crearCapacidad(),
+                _crearFecha(),
+                _crearDisponible(),
+                _crearBoton()
+              ],
             ),
           ),
-
+        ),
       ),
     );
+
   }
 
-  Widget _crearNombre(){
+  Widget _crearNombre() {
 
     return TextFormField(
-      initialValue: producto.titulo,
+      initialValue: evento.nombre,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
-        labelText: 'Producto'
+        labelText: 'Nombre del evento'
       ),
-      onSaved: (value) => producto.titulo = value,
-      validator: (value){
-        if( value.length < 3){
-          return 'Ingrese el nombre del producto';
-        }else{
+      onSaved: (value) => evento.nombre = value,
+      validator: (value) {
+        if ( value.length < 3 ) {
+          return 'Ingrese el nombre del evento';
+        } else {
           return null;
         }
       },
     );
-    
+
   }
 
-  Widget _crearPrecio(){
-    return TextFormField(
-      initialValue: producto.valor.toString(),
-      keyboardType: TextInputType.numberWithOptions( decimal:true ),
-      decoration: InputDecoration(
-        labelText: 'Precio'
-      ),
-      onSaved: (value) => producto.valor = double.parse (value),
-    );
-  }
-
-
-  Widget _crearCategoria(){
+    Widget _crearUbicacion() {
 
     return TextFormField(
-      initialValue: producto.titulo,
+      initialValue: evento.ubicacion,
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
-        labelText: 'Categoria'
+        labelText: 'Ubicacion del evento'
       ),
-      onSaved: (value) => producto.titulo = value,
-      validator: (value){
-        if( value.length < 3){
-          return 'Ingrese el nombre de la categoria';
-        }else{
+      onSaved: (value) => evento.ubicacion = value,
+      validator: (value) {
+        if ( value.length < 3 ) {
+          return 'Ingrese la ubicacion evento';
+        } else {
           return null;
         }
       },
     );
-    
+
   }
 
-  Widget _crearUbicacion(){
+    Widget _crearCapacidad() {
 
     return TextFormField(
-      initialValue: producto.titulo,
-      textCapitalization: TextCapitalization.sentences,
+      initialValue: evento.capacidad,
+      textCapitalization: TextCapitalization.characters,
       decoration: InputDecoration(
-        labelText: 'Ubicacion'
+        labelText: 'Capacidad de personas para el evento'
       ),
-      onSaved: (value) => producto.titulo = value,
-      validator: (value){
-        if( value.length < 3){
-          return 'Ingrese el nombre de la categoria';
-        }else{
+      onSaved: (value) => evento.capacidad = value,
+      validator: (value) {
+        if ( value.length < 3 ) {
+          return 'Ingrese la capacidad del evento';
+        } else {
           return null;
         }
       },
     );
-    
+
   }
 
-  Widget _crearDisponible(){
+      Widget _crearFecha() {
+
+    return TextFormField(
+      initialValue: evento.capacidad,
+      textCapitalization: TextCapitalization.words,
+      decoration: InputDecoration(
+        labelText: 'Fecha del evento'
+      ),
+      onSaved: (value) => evento.capacidad = value,
+      validator: (value) {
+        if ( value.length < 3 ) {
+          return 'Ingrese la fecha del evento';
+        } else {
+          return null;
+        }
+      },
+    );
+
+  }
+
+  Widget _crearDisponible() {
 
     return SwitchListTile(
-      value: producto.disponible, 
+      value: evento.disponible,
       title: Text('Disponible'),
       activeColor: Colors.deepPurple,
-      onChanged: (value) => setState( (){
-        producto.disponible = value;
-      })
-      );
-  }
-
-  Widget _crearDescripcion(){
-
-    return TextFormField(
-      initialValue: producto.titulo,
-      textCapitalization: TextCapitalization.sentences,
-      decoration: InputDecoration(
-        labelText: 'Descripcion'
-      ),
-      onSaved: (value) => producto.titulo = value,
-      validator: (value){
-        if( value.length < 3){
-          return 'Ingrese la descripcion del producto';
-        }else{
-          return null;
-        }
-      },
+      onChanged: (value)=> setState((){
+        evento.disponible = value;
+      }),
     );
-    
+
   }
 
-  Widget _crearBoton(){
-    
+
+
+  Widget _crearBoton() {
     return RaisedButton.icon(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.0)
@@ -171,20 +174,106 @@ class _EventoPageState extends State<EventoPage> {
       color: Colors.deepPurple,
       textColor: Colors.white,
       label: Text('Guardar'),
-      icon: Icon(Icons.save),
-      onPressed: _submit,
-      );
+      icon: Icon( Icons.save ),
+      onPressed: ( _guardando ) ? null : _submit,
+    );
   }
 
-  void _submit(){
+  void _submit() async {
 
-      if( !formKey.currentState.validate() ) return;
+    
 
-      formKey.currentState.save();
-        print( producto.titulo );
-        print( producto.valor );
+    if ( !formKey.currentState.validate() ) return;
 
-      productoProvider.crearProducto(producto); 
-     }
+    formKey.currentState.save();
+
+    setState(() {_guardando = true; });
+
+    if ( foto != null ) {
+      evento.fotoUrl = await eventoProvider.subirImagen(foto);
+    }
+
+
+
+    if ( evento.id == null ) {
+      eventoProvider.crearEvento(evento);
+    } else {
+      eventoProvider.editarEvento(evento);
+    }
+
+
+    // setState(() {_guardando = false; });
+    mostrarSnackbar('Registro guardado');
+
+    Navigator.pop(context);
+
+  }
+
+
+  void mostrarSnackbar(String mensaje) {
+
+    final snackbar = SnackBar(
+      content: Text( mensaje ),
+      duration: Duration( milliseconds: 1500),
+    );
+
+    scaffoldKey.currentState.showSnackBar(snackbar);
+
+  }
+
+
+  Widget _mostrarFoto() {
+
+    if ( evento.fotoUrl != null ) {
+      
+      return FadeInImage(
+        image: NetworkImage( evento.fotoUrl ),
+        placeholder: AssetImage('assets/jar-loading.gif'),
+        height: 300.0,
+        fit: BoxFit.contain,
+      );
+
+    } else {
+
+      return Image(
+
+        image: AssetImage( foto?.path ?? 'assets/no-image.png'),
+        height: 300.0,
+        fit: BoxFit.cover,
+
+      );
+
+    }
+
+  }
+
+
+  _seleccionarFoto() async {
+
+    _procesarImagen( ImageSource.gallery );
+
+  }
+  
+  
+  _tomarFoto() async {
+
+    _procesarImagen( ImageSource.camera );
+
+  }
+
+  _procesarImagen( ImageSource origen ) async {
+
+    foto = await ImagePicker.pickImage(
+      source: origen
+    );
+
+    if ( foto != null ) {
+      evento.fotoUrl = null;
+    }
+
+    setState(() {});
+
+  }
+
 
 }

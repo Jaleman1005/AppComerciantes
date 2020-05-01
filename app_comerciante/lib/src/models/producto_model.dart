@@ -19,7 +19,7 @@ class ProductoModel {
     ProductoModel({
         this.id,
         this.titulo = '',
-        this.valor  = 0.0,
+        this.valor  = 0,
         this.disponible = true,
         this.fotoUrl,
     });
