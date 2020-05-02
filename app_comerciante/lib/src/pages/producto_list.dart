@@ -5,14 +5,19 @@ import 'package:app_comerciante/src/models/producto_model.dart';
 import 'package:app_comerciante/src/providers/productos_provider.dart';
 
 class ProductoListPage extends StatelessWidget {
-  
+  static const int dualPanelBreakpoint = 600;
   final productosProvider = new ProductosProvider();
-  
+  String temp; 
   @override
   Widget build(BuildContext context) {
 
     final bloc = Provider.of(context);
-    
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    if (shortestSide < dualPanelBreakpoint) {
+      temp = 'producto';
+    } else {
+      temp = 'Productos';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +51,6 @@ class ProductoListPage extends StatelessWidget {
   }
 
   Widget _crearItem(BuildContext context, ProductoModel producto ) {
-
     return Dismissible(
       key: UniqueKey(),
       background: Container(
@@ -72,7 +76,7 @@ class ProductoListPage extends StatelessWidget {
             ListTile(
               title: Text('${ producto.titulo } - ${ producto.valor }'),
               subtitle: Text( producto.id ),
-              onTap: () => Navigator.pushNamed(context, 'Productos', arguments: producto ),
+              onTap: () => Navigator.pushNamed(context, temp, arguments: producto ),
             ),
 
           ],

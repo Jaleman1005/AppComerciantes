@@ -4,14 +4,19 @@ import 'package:app_comerciante/src/bloc/provider.dart';
 import 'package:app_comerciante/src/providers/evento_provider.dart';
 
 class EventoListPage extends StatelessWidget {
-  
+  static const int dualPanelBreakpoint = 600;
   final eventosProvider = new EventosProvider();
-  
+  String temp;
   @override
   Widget build(BuildContext context) {
 
     final bloc = Provider.of(context);
-    
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    if (shortestSide < dualPanelBreakpoint) {
+      temp = 'evento';
+    } else {
+      temp = 'Eventos';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -71,7 +76,7 @@ class EventoListPage extends StatelessWidget {
             ListTile(
               title: Text('${ evento.nombre } - ${ evento.capacidad }'),
               subtitle: Text( evento.id ),
-              onTap: () => Navigator.pushNamed(context, 'Eventos', arguments: evento ),
+              onTap: () => Navigator.pushNamed(context, temp, arguments: evento ),
             ),
 
           ],
