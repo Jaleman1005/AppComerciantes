@@ -12,9 +12,9 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[          
-          _cardTipo2(context,'eventoList'),
+          _cardTipo2(context,'Eventos'),
           SizedBox(height: 30.0),
-           _cardTipo2(context,'productoList'),
+           _cardTipo2(context,'Productos'),
           SizedBox(height: 30.0),
         ],
       ),
@@ -64,5 +64,4 @@ class HomePage extends StatelessWidget {
     );
 
   }
-
 }

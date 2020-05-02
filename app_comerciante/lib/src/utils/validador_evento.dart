@@ -1,30 +1,29 @@
-import 'package:app_comerciante/pages/Perfil/perfil.dart';
-import 'package:app_comerciante/pages/home-service/home-duplex.dart';
-import 'package:app_comerciante/pages/home-service/home.dart';
 import 'package:flutter/material.dart';
 
-class ValidadorContainer extends StatefulWidget {
+import 'package:app_comerciante/src/pages/evento_list.dart';
+import 'package:app_comerciante/src/pages/evento_page.dart';
+
+class ValidadorEvento extends StatefulWidget {
   @override
-  _ItemValidadorContainerState createState() =>
-      _ItemValidadorContainerState();
+  _ItemValidadorEventoState createState() =>
+      _ItemValidadorEventoState();
 }
 
-class _ItemValidadorContainerState extends State<ValidadorContainer> {
+class _ItemValidadorEventoState extends State<ValidadorEvento> {
   static const int dualPanelBreakpoint = 600;
   Widget _buildSinglePanelLayout() {
-    return HomePage();
+    return EventoListPage();
   }
 
   @override
   Widget build(BuildContext context) {
     Widget content;
-    //final SeriesM series = ModalRoute.of(context).settings.arguments;
     var shortestSide = MediaQuery.of(context).size.shortestSide;
 
     if (shortestSide < dualPanelBreakpoint) {
       content = _buildSinglePanelLayout();
     } else {
-      content = _buildDualPanelLayout(/* series */);
+      content = _buildDualPanelLayout();
     }
 
     return Scaffold(
@@ -32,19 +31,19 @@ class _ItemValidadorContainerState extends State<ValidadorContainer> {
     );
   }
 
-  Widget _buildDualPanelLayout(/* SeriesM series */) {
+  Widget _buildDualPanelLayout() {
     return Row(
       children: <Widget>[
         Flexible(
           flex: 1,
           child: Material(
             elevation: 4.0,
-            child: HomePageDuplex()
+            child: EventoListPage()
             ),
           ),
         Flexible(
           flex: 3,
-          child: Perfil()
+          child: EventoPage()
         ),
       ],
     );
