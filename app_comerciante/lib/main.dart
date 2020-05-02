@@ -1,9 +1,12 @@
 import 'package:app_comerciante/pages/login-service/login.dart';
 import 'package:app_comerciante/pages/productos/crear-producto.dart';
 import 'package:app_comerciante/pages/productos/vista-productos.dart';
+import 'package:app_comerciante/pages/utils/validate.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app_comerciante/pages/Perfil/perfil.dart';
+
+import 'pages/home-service/home-duplex.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +15,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LoginPage(),
+      initialRoute: '/',
+      routes: {
+        '/'  : ( BuildContext context ) => LoginPage(),
+        'perfil'  : ( BuildContext context ) => Perfil(),
+        'validar'  : ( BuildContext context ) => ValidadorContainer(),
+        'crearProducto'  : ( BuildContext context ) => CrearProducto(),
+        'vistaProducto'  : ( BuildContext context ) => VistaProductos(),
+      },
     );
   }
 }

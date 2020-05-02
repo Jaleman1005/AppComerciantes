@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:app_comerciante/pages/utils/validate.dart';
 
-import 'package:app_comerciante/pages/home-service/home.dart';
 import 'package:app_comerciante/pages/registro-service/registro.dart';
 
 
@@ -66,7 +66,7 @@ class _LoginPageState extends State<LoginPage> {
                 onPressed: (){
                     Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
+                    MaterialPageRoute(builder: (context) => ValidadorContainer()),
                   );
               }, 
               )
