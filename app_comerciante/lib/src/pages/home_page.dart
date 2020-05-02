@@ -1,40 +1,43 @@
-import 'package:formvalidation/src/pages/evento_page.dart';
 import 'package:flutter/material.dart';
 
+class HomePage extends StatelessWidget {
 
-class HomePage extends StatelessWidget { 
-  
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home')
+        title: Text('App-Comerciantes'),
       ),
       body: ListView(
         padding: EdgeInsets.all(10.0),
-        children: <Widget>[
-          _cardTipo2(context, 'listaProductos'),
-          SizedBox(height: 20.0),
+        children: <Widget>[          
+          _cardTipo2(context,'eventoList'),
+          SizedBox(height: 30.0),
+           _cardTipo2(context,'productoList'),
+          SizedBox(height: 30.0),
         ],
-      )
+      ),
     );
   }
 
-  Widget _cardTipo2(BuildContext context, String ruta) {
+  Widget _cardTipo2(BuildContext context,  String direccionamiento) {
+
     final card = Container(
+      // clipBehavior: Clip.antiAlias,
       child: Column(
         children: <Widget>[
+
           FadeInImage(
-            image: NetworkImage('https://res.cloudinary.com/dlrlog6ij/image/upload/v1586382080/yukiqh93a8yxkeafu56q.jpg'),
+            image: NetworkImage('https://res.cloudinary.com/dlrlog6ij/image/upload/v1588379572/hwvfvmywpjvrawcjbr8f.jpg'),
             placeholder: AssetImage('assets/jar-loading.gif'),
             fadeInDuration: Duration( milliseconds: 200 ),
             height: 300.0,
             fit: BoxFit.cover,
           ),
-          RaisedButton(
-            child: Text('$ruta'),
-            onPressed: () => Navigator.pushReplacementNamed(context, '$ruta'), 
+          ListTile(
+              title: Text('$direccionamiento'),              
+              onTap: () => Navigator.pushNamed(context,'$direccionamiento' ),
             ),
         ],
       ),

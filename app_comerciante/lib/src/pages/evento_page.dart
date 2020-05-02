@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 
-import 'package:formvalidation/src/models/evento_model.dart';
-import 'package:formvalidation/src/providers/evento_provider.dart';
-import 'package:formvalidation/src/utils/utils.dart' as utils;
+import 'package:appdiseno/src/models/evento_model.dart';
+import 'package:appdiseno/src/providers/evento_provider.dart';
+import 'package:appdiseno/src/utils/utils.dart' as utils;
 
 
 class EventoPage extends StatefulWidget {

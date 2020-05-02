@@ -1,7 +1,7 @@
-import 'package:formvalidation/src/providers/usuario_provider.dart';
-import 'package:formvalidation/src/utils/utils.dart';
+import 'package:appdiseno/src/providers/usuario_provider.dart';
+import 'package:appdiseno/src/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:formvalidation/src/bloc/provider.dart';
+import 'package:appdiseno/src/bloc/provider.dart';
 
 class LoginPage extends StatelessWidget {
   

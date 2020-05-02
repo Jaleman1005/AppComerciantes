@@ -1,6 +1,6 @@
-import 'package:formvalidation/src/providers/usuario_provider.dart';
+import 'package:appdiseno/src/providers/usuario_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:formvalidation/src/bloc/provider.dart';
+import 'package:appdiseno/src/bloc/provider.dart';
 
 class RegistroPage extends StatelessWidget {
 
