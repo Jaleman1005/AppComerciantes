@@ -72,7 +72,7 @@ class ProductoListPage extends StatelessWidget {
             ListTile(
               title: Text('${ producto.titulo } - ${ producto.valor }'),
               subtitle: Text( producto.id ),
-              onTap: () => Navigator.pushNamed(context, 'producto', arguments: producto ),
+              onTap: () => Navigator.pushNamed(context, 'Productos', arguments: producto ),
             ),
 
           ],

@@ -31,8 +31,8 @@ class MyApp extends StatelessWidget {
           'evento'           : ( BuildContext context ) => EventoPage(),
           'productoList'     : ( BuildContext context ) => ProductoListPage(),
           'eventoList'       : ( BuildContext context ) => EventoListPage(),
-          'Eventos'  : ( BuildContext context ) => ValidadorEvento(),
-          'Productos': ( BuildContext context ) => ValidadorProducto()
+          'Eventos'          : ( BuildContext context ) => ValidadorEvento(),
+          'Productos'        : ( BuildContext context ) => ValidadorProducto()
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
