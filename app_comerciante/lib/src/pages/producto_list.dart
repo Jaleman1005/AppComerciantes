@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:appdiseno/src/bloc/provider.dart';
-import 'package:appdiseno/src/models/producto_model.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:comerciantes/src/models/producto_model.dart';
 
-import 'package:appdiseno/src/providers/productos_provider.dart';
+import 'package:comerciantes/src/providers/productos_provider.dart';
 
 class ProductoListPage extends StatelessWidget {
-  
+  static const int dualPanelBreakpoint = 600;
   final productosProvider = new ProductosProvider();
-  
+  String temp; 
   @override
   Widget build(BuildContext context) {
 
     final bloc = Provider.of(context);
-    
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    if (shortestSide < dualPanelBreakpoint) {
+      temp = 'producto';
+    } else {
+      temp = 'Productos';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -46,7 +51,6 @@ class ProductoListPage extends StatelessWidget {
   }
 
   Widget _crearItem(BuildContext context, ProductoModel producto ) {
-
     return Dismissible(
       key: UniqueKey(),
       background: Container(
@@ -72,7 +76,7 @@ class ProductoListPage extends StatelessWidget {
             ListTile(
               title: Text('${ producto.titulo } - ${ producto.valor }'),
               subtitle: Text( producto.id ),
-              onTap: () => Navigator.pushNamed(context, 'producto', arguments: producto ),
+              onTap: () => Navigator.pushNamed(context, temp, arguments: producto ),
             ),
 
           ],
@@ -80,8 +84,6 @@ class ProductoListPage extends StatelessWidget {
       )
     );
 
-
-    
 
   }
 

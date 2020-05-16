@@ -6,7 +6,7 @@ import 'package:mime_type/mime_type.dart';
 import 'package:http_parser/http_parser.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:appdiseno/src/models/evento_model.dart';
+import 'package:comerciantes/src/models/evento_model.dart';
 
 class EventosProvider {
 
@@ -28,7 +28,7 @@ class EventosProvider {
 
     Future<bool> editarEvento( EventoModel evento ) async {
     
-    final url = '$_url/productos/${ evento.id }.json';
+    final url = '$_url/eventos/${ evento.id }.json';
 
     final resp = await http.put( url, body: eventoModelToJson(evento) );
 
@@ -66,9 +66,9 @@ class EventosProvider {
 
   }
 
-  Future<int> borrarProducto( String id ) async { 
+  Future<int> borrarEvento( String id ) async { 
 
-    final url  = '$_url/productos/$id.json';
+    final url  = '$_url/eventos/$id.json';
     final resp = await http.delete(url);
 
     print( resp.body );

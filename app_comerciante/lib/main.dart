@@ -1,19 +1,23 @@
-import 'package:appdiseno/src/pages/evento_list.dart';
-import 'package:appdiseno/src/pages/evento_page.dart';
-import 'package:appdiseno/src/pages/producto_list.dart';
-import 'package:appdiseno/src/pages/registro_page.dart';
 import 'package:flutter/material.dart';
-import 'package:appdiseno/src/bloc/provider.dart';
-import 'package:appdiseno/src/pages/home_page.dart';
-import 'package:appdiseno/src/pages/login_page.dart';
-import 'package:appdiseno/src/pages/producto_page.dart';
+
+import 'package:comerciantes/src/pages/evento_list.dart';
+import 'package:comerciantes/src/pages/evento_page.dart';
+import 'package:comerciantes/src/pages/producto_list.dart';
+import 'package:comerciantes/src/pages/registro_page.dart';
+import 'package:comerciantes/src/utils/validador_evento.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:comerciantes/src/pages/home_page.dart';
+import 'package:comerciantes/src/pages/login_page.dart';
+import 'package:comerciantes/src/pages/producto_page.dart';
+
+import 'src/utils/validador_producto.dart';
  
 void main() => runApp(MyApp());
  
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-        
+      
     return Provider(
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -25,8 +29,10 @@ class MyApp extends StatelessWidget {
           'home'             : ( BuildContext context ) => HomePage(),
           'producto'         : ( BuildContext context ) => ProductoPage(),
           'evento'           : ( BuildContext context ) => EventoPage(),
-          'productoList'           : ( BuildContext context ) => ProductoListPage(),
-          'eventoList'           : ( BuildContext context ) => EventoListPage()
+          'productoList'     : ( BuildContext context ) => ProductoListPage(),
+          'eventoList'       : ( BuildContext context ) => EventoListPage(),
+          'Eventos'          : ( BuildContext context ) => ValidadorEvento(),
+          'Productos'        : ( BuildContext context ) => ValidadorProducto()
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,

@@ -12,16 +12,16 @@ class HomePage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[          
-          _cardTipo2(context,'eventoList'),
+          _cardTipo2(context,'Eventos','v1588379572'),
           SizedBox(height: 30.0),
-           _cardTipo2(context,'productoList'),
+           _cardTipo2(context,'Productos','v1588436086'),
           SizedBox(height: 30.0),
         ],
       ),
     );
   }
 
-  Widget _cardTipo2(BuildContext context,  String direccionamiento) {
+  Widget _cardTipo2(BuildContext context,  String direccionamiento, String uri) {
 
     final card = Container(
       // clipBehavior: Clip.antiAlias,
@@ -29,8 +29,8 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
 
           FadeInImage(
-            image: NetworkImage('https://res.cloudinary.com/dlrlog6ij/image/upload/v1588379572/hwvfvmywpjvrawcjbr8f.jpg'),
-            placeholder: AssetImage('assets/jar-loading.gif'),
+            image: NetworkImage('https://res.cloudinary.com/dlrlog6ij/image/upload/'+uri+'/'+direccionamiento+'.jpg'),            
+            placeholder: AssetImage('assets/jar-loading.gif'),            
             fadeInDuration: Duration( milliseconds: 200 ),
             height: 300.0,
             fit: BoxFit.cover,
@@ -64,5 +64,4 @@ class HomePage extends StatelessWidget {
     );
 
   }
-
 }

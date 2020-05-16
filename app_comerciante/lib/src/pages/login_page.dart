@@ -1,7 +1,7 @@
-import 'package:appdiseno/src/providers/usuario_provider.dart';
-import 'package:appdiseno/src/utils/utils.dart';
+import 'package:comerciantes/src/providers/usuario_provider.dart';
+import 'package:comerciantes/src/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:appdiseno/src/bloc/provider.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
 
 class LoginPage extends StatelessWidget {
   

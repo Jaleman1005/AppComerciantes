@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
 
-import 'package:appdiseno/src/models/producto_model.dart';
-import 'package:appdiseno/src/providers/productos_provider.dart';
-import 'package:appdiseno/src/utils/utils.dart' as utils;
+import 'package:comerciantes/src/models/producto_model.dart';
+import 'package:comerciantes/src/providers/productos_provider.dart';
+import 'package:comerciantes/src/utils/utils.dart' as utils;
 
 
 class ProductoPage extends StatefulWidget {

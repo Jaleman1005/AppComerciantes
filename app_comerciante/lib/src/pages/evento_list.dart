@@ -1,18 +1,22 @@
+import 'package:comerciantes/src/models/evento_model.dart';
 import 'package:flutter/material.dart';
-import 'package:appdiseno/src/bloc/provider.dart';
-import 'package:appdiseno/src/models/producto_model.dart';
-
-import 'package:appdiseno/src/providers/productos_provider.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:comerciantes/src/providers/evento_provider.dart';
 
 class EventoListPage extends StatelessWidget {
-  
-  final productosProvider = new ProductosProvider();
-  
+  static const int dualPanelBreakpoint = 600;
+  final eventosProvider = new EventosProvider();
+  String temp;
   @override
   Widget build(BuildContext context) {
 
     final bloc = Provider.of(context);
-    
+    var shortestSide = MediaQuery.of(context).size.shortestSide;
+    if (shortestSide < dualPanelBreakpoint) {
+      temp = 'evento';
+    } else {
+      temp = 'Eventos';
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -27,15 +31,15 @@ class EventoListPage extends StatelessWidget {
   Widget _crearListado() {
 
     return FutureBuilder(
-      future: productosProvider.cargarProductos(),
-      builder: (BuildContext context, AsyncSnapshot<List<ProductoModel>> snapshot) {
+      future: eventosProvider.cargarEventos(),
+      builder: (BuildContext context, AsyncSnapshot<List<EventoModel>> snapshot) {
         if ( snapshot.hasData ) {
 
-          final productos = snapshot.data;
+          final eventos = snapshot.data;
 
           return ListView.builder(
-            itemCount: productos.length,
-            itemBuilder: (context, i) => _crearItem(context, productos[i] ),
+            itemCount: eventos.length,
+            itemBuilder: (context, i) => _crearItem(context, eventos[i] ),
           );
 
         } else {
@@ -45,7 +49,7 @@ class EventoListPage extends StatelessWidget {
     );
   }
 
-  Widget _crearItem(BuildContext context, ProductoModel producto ) {
+  Widget _crearItem(BuildContext context, EventoModel evento ) {
 
     return Dismissible(
       key: UniqueKey(),
@@ -53,16 +57,16 @@ class EventoListPage extends StatelessWidget {
         color: Colors.red,
       ),
       onDismissed: ( direccion ){
-        productosProvider.borrarProducto(producto.id);
+        eventosProvider.borrarEvento(evento.id);
       },
       child: Card(
         child: Column(
           children: <Widget>[
 
-            ( producto.fotoUrl == null ) 
+            ( evento.fotoUrl == null ) 
               ? Image(image: AssetImage('assets/no-image.png'))
               : FadeInImage(
-                image: NetworkImage( producto.fotoUrl ),
+                image: NetworkImage( evento.fotoUrl ),
                 placeholder: AssetImage('assets/jar-loading.gif'),
                 height: 300.0,
                 width: double.infinity,
@@ -70,9 +74,9 @@ class EventoListPage extends StatelessWidget {
               ),
             
             ListTile(
-              title: Text('${ producto.titulo } - ${ producto.valor }'),
-              subtitle: Text( producto.id ),
-              onTap: () => Navigator.pushNamed(context, 'producto', arguments: producto ),
+              title: Text('${ evento.nombre } - ${ evento.capacidad }'),
+              subtitle: Text( evento.id ),
+              onTap: () => Navigator.pushNamed(context, temp, arguments: evento ),
             ),
 
           ],
@@ -80,16 +84,13 @@ class EventoListPage extends StatelessWidget {
       )
     );
 
-
-    
-
   }
 
   _crearBoton(BuildContext context) {
     return FloatingActionButton(
       child: Icon( Icons.add ),
       backgroundColor: Colors.deepPurple,
-      onPressed: ()=> Navigator.pushNamed(context, 'evento'),
+      onPressed: ()=> Navigator.pushNamed(context, 'Eventos'),
     );
   }
 
