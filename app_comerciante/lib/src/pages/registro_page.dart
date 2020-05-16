@@ -1,6 +1,7 @@
-import 'package:app_comerciante/src/providers/usuario_provider.dart';
+
+import 'package:comerciantes/src/providers/usuario_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:app_comerciante/src/bloc/provider.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
 
 class RegistroPage extends StatelessWidget {
 

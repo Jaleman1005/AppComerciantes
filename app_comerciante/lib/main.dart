@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 
-import 'package:app_comerciante/src/pages/evento_list.dart';
-import 'package:app_comerciante/src/pages/evento_page.dart';
-import 'package:app_comerciante/src/pages/producto_list.dart';
-import 'package:app_comerciante/src/pages/registro_page.dart';
-import 'package:app_comerciante/src/utils/validador_evento.dart';
-import 'package:app_comerciante/src/bloc/provider.dart';
-import 'package:app_comerciante/src/pages/home_page.dart';
-import 'package:app_comerciante/src/pages/login_page.dart';
-import 'package:app_comerciante/src/pages/producto_page.dart';
+
+import 'package:comerciantes/src/pages/evento_list.dart';
+import 'package:comerciantes/src/pages/evento_page.dart';
+import 'package:comerciantes/src/pages/producto_list.dart';
+import 'package:comerciantes/src/pages/registro_page.dart';
+import 'package:comerciantes/src/utils/validador_evento.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:comerciantes/src/pages/home_page.dart';
+import 'package:comerciantes/src/pages/login_page.dart';
+import 'package:comerciantes/src/pages/producto_page.dart';
+
 
 import 'src/utils/validador_producto.dart';
  

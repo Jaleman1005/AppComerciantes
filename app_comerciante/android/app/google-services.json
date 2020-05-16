@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "197541926603",
+    "firebase_url": "https://appcomerciantes.firebaseio.com",
+    "project_id": "appcomerciantes",
+    "storage_bucket": "appcomerciantes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:197541926603:android:468c93bdac01ac5c33ad4e",
+        "android_client_info": {
+          "package_name": "com.example.comerciantes"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "197541926603-nj1ghqb0ncf3usiqpmuqjd1991rhmnj5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.comerciantes",
+            "certificate_hash": "152072f3be578cb8058831f5e7db462cf0ae84ea"
+          }
+        },
+        {
+          "client_id": "197541926603-dn9q7s40f955l0a0fpikae2embfalfnq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAKHwj3KWAN98Pw65s5oYqr5hUV2OiUpAw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "197541926603-dn9q7s40f955l0a0fpikae2embfalfnq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

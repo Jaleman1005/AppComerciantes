@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:app_comerciante/src/pages/producto_list.dart';
-import 'package:app_comerciante/src/pages/producto_page.dart';
+
+import 'package:comerciantes/src/pages/producto_list.dart';
+import 'package:comerciantes/src/pages/producto_page.dart';
 
 class ValidadorProducto extends StatefulWidget {
   @override

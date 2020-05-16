@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:app_comerciante/src/bloc/provider.dart';
-import 'package:app_comerciante/src/models/producto_model.dart';
-
-import 'package:app_comerciante/src/providers/productos_provider.dart';
+import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:comerciantes/src/models/producto_model.dart';
+import 'package:comerciantes/src/providers/productos_provider.dart';
 
 class ProductoListPage extends StatelessWidget {
   static const int dualPanelBreakpoint = 600;
@@ -83,10 +82,6 @@ class ProductoListPage extends StatelessWidget {
         ),
       )
     );
-
-
-    
-
   }
 
   _crearBoton(BuildContext context) {
