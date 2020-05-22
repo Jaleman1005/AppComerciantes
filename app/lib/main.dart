@@ -45,7 +45,6 @@ class MyApp extends StatelessWidget {
           primaryColor: Colors.deepPurple,
         ),
       ),
-    );
-      
+    ); 
   }
 }
