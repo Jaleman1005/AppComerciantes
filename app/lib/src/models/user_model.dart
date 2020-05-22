@@ -22,7 +22,7 @@ class UserModel {
         this.nombre       = 'David',
         this.apellido     = 'Robayo',
         this.celular      = '3229496709',
-        this.ciudad      = 'Bogota',        
+        this.ciudad       = 'Bogota',        
         this.descripcion  = 'Empresario enfocado en el area de tecnologia',
     });
 

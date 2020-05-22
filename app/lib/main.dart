@@ -1,4 +1,5 @@
 import 'package:app/src/pages/configuracion_page.dart';
+import 'package:app/src/pages/patrocinados_page.dart';
 import 'package:app/src/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
           'Eventos'          : ( BuildContext context ) => ValidadorEvento(),
           'Productos'        : ( BuildContext context ) => ValidadorProducto(),
           'Perfil'           : ( BuildContext context ) => PerfilPage(),
-          'configuracion'    : ( BuildContext context ) => ConfiguracionPage()
+          'configuracion'    : ( BuildContext context ) => ConfiguracionPage(),
+          'ListaPa'          : ( BuildContext context ) => InputPage()
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
