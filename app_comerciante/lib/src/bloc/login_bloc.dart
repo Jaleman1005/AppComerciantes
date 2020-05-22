@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:comerciantes/src/bloc/validators.dart';
+import 'package:app/src/bloc/validators.dart';
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc with Validators {

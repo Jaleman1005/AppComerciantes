@@ -1,7 +1,7 @@
-import 'package:comerciantes/src/providers/usuario_provider.dart';
-import 'package:comerciantes/src/utils/utils.dart';
+import 'package:app/src/providers/usuario_provider.dart';
+import 'package:app/src/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:comerciantes/src/bloc/provider.dart';
+import 'package:app/src/bloc/provider.dart';
 
 class LoginPage extends StatelessWidget {
   
@@ -219,7 +219,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               Icon( Icons.person_pin_circle, color: Colors.white, size: 100.0 ),
               SizedBox( height: 10.0, width: double.infinity ),
-              Text('App-Comerciantes', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
+              Text('App-app', style: TextStyle( color: Colors.white, fontSize: 25.0 ))
             ],
           ),
         )

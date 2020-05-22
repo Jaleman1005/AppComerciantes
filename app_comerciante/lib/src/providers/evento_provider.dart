@@ -6,7 +6,7 @@ import 'package:mime_type/mime_type.dart';
 import 'package:http_parser/http_parser.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:comerciantes/src/models/evento_model.dart';
+import 'package:app/src/models/evento_model.dart';
 
 class EventosProvider {
 
@@ -34,13 +34,11 @@ class EventosProvider {
 
     final decodedData = json.decode(resp.body);
 
-    print( decodedData );
-
     return true;
 
   }
 
-  Future<List<EventoModel>> cargarEventos() async {
+  Future<List<EventoModel>> cargarEvento() async {
 
     final url  = '$_url/eventos.json';
     final resp = await http.get(url);
@@ -51,16 +49,12 @@ class EventosProvider {
 
     if ( decodedData == null ) return [];
 
-    decodedData.forEach( ( id, prod ){
-
-      final eventTemp = EventoModel.fromJson(prod);
-      eventTemp.id = id;
-
-      eventos.add( eventTemp );
+    decodedData.forEach( ( id, event ){
+      final eventoTemp = EventoModel.fromJson(event);
+      eventoTemp.id = id;
+      eventos.add( eventoTemp );
 
     });
-
-    // print( productos[0].id );
 
     return eventos;
 

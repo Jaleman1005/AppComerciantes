@@ -35,11 +35,11 @@ class EventoModel {
     );
 
     Map<String, dynamic> toJson() => {
-        "id": id,
-        "nombre": nombre,
-        "ubicacion": ubicacion,
-        "capacidad": capacidad,
-        "fotoUrl": fotoUrl,
+        "id"        : id,
+        "nombre"    : nombre,
+        "ubicacion" : ubicacion,
+        "capacidad" : capacidad,
+        "fotoUrl"   : fotoUrl,
         "disponible": disponible,
     };
 }

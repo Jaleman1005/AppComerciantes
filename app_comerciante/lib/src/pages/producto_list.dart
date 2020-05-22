@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:comerciantes/src/bloc/provider.dart';
-import 'package:comerciantes/src/models/producto_model.dart';
+import 'package:app/src/bloc/provider.dart';
+import 'package:app/src/models/producto_model.dart';
 
-import 'package:comerciantes/src/providers/productos_provider.dart';
+import 'package:app/src/providers/productos_provider.dart';
 
 class ProductoListPage extends StatelessWidget {
   static const int dualPanelBreakpoint = 600;
@@ -60,9 +60,10 @@ class ProductoListPage extends StatelessWidget {
         productosProvider.borrarProducto(producto.id);
       },
       child: Card(
+        elevation: 10.0,        
+        shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20.0) ),
         child: Column(
           children: <Widget>[
-
             ( producto.fotoUrl == null ) 
               ? Image(image: AssetImage('assets/no-image.png'))
               : FadeInImage(
@@ -71,14 +72,25 @@ class ProductoListPage extends StatelessWidget {
                 height: 300.0,
                 width: double.infinity,
                 fit: BoxFit.cover,
-              ),
-            
-            ListTile(
-              title: Text('${ producto.titulo } - ${ producto.valor }'),
-              subtitle: Text( producto.id ),
-              onTap: () => Navigator.pushNamed(context, temp, arguments: producto ),
-            ),
-
+              ),                            
+              Row(
+               children: <Widget>[
+                 FlatButton(
+                   child:Text('${ producto.titulo }'),
+                   onPressed: () => Navigator.pushNamed(context, temp, arguments: producto ),
+                   padding: EdgeInsets.all(10.0),
+                   color: Colors.green,                                      
+                   textColor: Colors.white,
+                 ),
+                 FlatButton(
+                   child:Text("Patrocinar", textAlign: TextAlign.right,),
+                   onPressed: () => _mostrarAlert(context),
+                   padding: EdgeInsets.all(10.0),
+                   color: Colors.deepPurple,
+                   textColor: Colors.white,
+                 )
+               ],
+              ),                              
           ],
         ),
       )
@@ -94,5 +106,45 @@ class ProductoListPage extends StatelessWidget {
       onPressed: ()=> Navigator.pushNamed(context, 'producto'),
     );
   }
+
+void _mostrarAlert(BuildContext context) {
+
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+
+        return AlertDialog(
+          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20.0) ),
+          title: Text('Gracias por tu apoyo'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('En este momento nos pondremos en contacto y recibiras mas información'),
+              //FlutterLogo( size: 100.0 )
+            ],
+          ),
+          actions: <Widget>[
+            FlatButton(
+              child: Text('Cancelar'),
+              onPressed: ()=> Navigator.of(context).pop(),
+            ),
+            FlatButton(
+              child: Text('Ok'),
+              onPressed: (){
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+
+      }
+
+    );
+
+  }
+
+
+
 
 }

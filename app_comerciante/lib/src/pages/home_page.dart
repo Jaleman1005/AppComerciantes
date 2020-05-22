@@ -7,8 +7,15 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('App-Comerciantes'),
-      ),
+        title: Text('App-Comerciante'),
+        actions: <Widget>[
+        IconButton(
+          icon: const Icon(Icons.perm_contact_calendar),
+          tooltip: 'Show Snackbar',
+          onPressed: () => Navigator.pushNamed(context, 'Perfil'),
+        ),
+      ],
+      ),  
       body: ListView(
         padding: EdgeInsets.all(10.0),
         children: <Widget>[          

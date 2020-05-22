@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:comerciantes/src/pages/evento_list.dart';
-import 'package:comerciantes/src/pages/evento_page.dart';
+import 'package:app/src/pages/evento_list.dart';
+import 'package:app/src/pages/evento_page.dart';
 
 class ValidadorEvento extends StatefulWidget {
   @override
