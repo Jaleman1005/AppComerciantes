@@ -1,3 +1,4 @@
+import 'package:app/src/pages/patrocinados_page.dart';
 import 'package:app/src/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
           'eventoList'       : ( BuildContext context ) => EventoListPage(),
           'Eventos'          : ( BuildContext context ) => ValidadorEvento(),
           'Productos'        : ( BuildContext context ) => ValidadorProducto(),
-          'Perfil'           : ( BuildContext context ) => PerfilPage()
+          'Perfil'           : ( BuildContext context ) => PerfilPage(),
+          'ListaPa'          : ( BuildContext context ) => InputPage()
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,
