@@ -25,6 +25,7 @@ class HomePage extends StatelessWidget {
           SizedBox(height: 30.0),
            _cardTipo2(context,'Productos','v1588436086'),
           SizedBox(height: 30.0),
+          _crearBoton(context)
         ],
       ),
     );
@@ -113,4 +114,20 @@ class HomePage extends StatelessWidget {
        )
     );
   }
+
+  
+  Widget _crearBoton(BuildContext context) {
+    return RaisedButton.icon(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(20.0)
+      ),
+      color: Colors.redAccent,
+      textColor: Colors.white,
+      label: Text('Cerrar Sesion'),
+      icon: Icon( Icons.close ),
+      onPressed: ( ) => Navigator.pushNamed(context,'login')
+    );
+  }
+
+
 }

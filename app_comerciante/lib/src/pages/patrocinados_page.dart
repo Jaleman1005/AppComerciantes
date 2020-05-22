@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class InputPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -11,9 +10,14 @@ class InputPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
           actions: <Widget>[
-            IconButton(
-              icon: const Icon(Icons.arrow_back),        
-              onPressed: () => Navigator.pop(context),
+            FlatButton(
+                   child:Row(
+                     children: <Widget>[                                                     
+                       Icon(Icons.arrow_back, color: Colors.white)
+                     ],
+                   ),
+                   onPressed: () => Navigator.pop(context),
+                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
             ),
           ],
         ),
