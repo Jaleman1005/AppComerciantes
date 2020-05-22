@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-
-import 'package:comerciantes/src/providers/usuario_provider.dart';
-=======
 import 'package:app/src/providers/usuario_provider.dart';
->>>>>>> Robayo
 import 'package:flutter/material.dart';
 import 'package:app/src/bloc/provider.dart';
 

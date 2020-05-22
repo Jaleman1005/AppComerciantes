@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
 
-import 'package:comerciantes/src/bloc/login_bloc.dart';
-export 'package:comerciantes/src/bloc/login_bloc.dart';
-=======
 import 'package:app/src/bloc/login_bloc.dart';
 export 'package:app/src/bloc/login_bloc.dart';
->>>>>>> Robayo
-
-
 
 class Provider extends InheritedWidget {
 

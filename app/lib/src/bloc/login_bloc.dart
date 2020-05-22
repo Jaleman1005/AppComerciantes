@@ -1,10 +1,6 @@
 import 'dart:async';
-<<<<<<< HEAD
 
-import 'package:comerciantes/src/bloc/validators.dart';
-=======
 import 'package:app/src/bloc/validators.dart';
->>>>>>> Robayo
 import 'package:rxdart/rxdart.dart';
 
 class LoginBloc with Validators {

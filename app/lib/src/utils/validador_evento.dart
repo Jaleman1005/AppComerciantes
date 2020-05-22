@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
-<<<<<<< HEAD
-
-import 'package:comerciantes/src/pages/evento_list.dart';
-import 'package:comerciantes/src/pages/evento_page.dart';
-=======
 import 'package:app/src/pages/evento_list.dart';
 import 'package:app/src/pages/evento_page.dart';
->>>>>>> Robayo
 
 
 class ValidadorEvento extends StatefulWidget {

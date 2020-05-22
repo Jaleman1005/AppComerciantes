@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-
-import 'package:comerciantes/src/models/evento_model.dart';
-=======
 import 'package:app/src/models/evento_model.dart';
->>>>>>> Robayo
 import 'package:flutter/material.dart';
 import 'package:app/src/bloc/provider.dart';
 import 'package:app/src/providers/evento_provider.dart';

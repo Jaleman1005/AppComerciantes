@@ -14,6 +14,11 @@ class HomePage extends StatelessWidget {
           tooltip: 'Show Snackbar',
           onPressed: () => Navigator.pushNamed(context, 'Perfil'),
         ),
+        IconButton(
+          icon: const Icon(Icons.build),
+          tooltip: 'Show Snackbar',
+          onPressed: () => Navigator.pushNamed(context, 'configuracion'),
+        ),
       ],
       ),  
       body: ListView(

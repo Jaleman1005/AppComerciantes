@@ -1,13 +1,7 @@
 import 'package:flutter/material.dart';
 
-<<<<<<< HEAD
-
-import 'package:comerciantes/src/pages/producto_list.dart';
-import 'package:comerciantes/src/pages/producto_page.dart';
-=======
 import 'package:app/src/pages/producto_list.dart';
 import 'package:app/src/pages/producto_page.dart';
->>>>>>> Robayo
 
 class ValidadorProducto extends StatefulWidget {
   @override

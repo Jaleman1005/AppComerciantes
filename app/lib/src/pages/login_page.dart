@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-
-import 'package:comerciantes/src/providers/usuario_provider.dart';
-import 'package:comerciantes/src/utils/utils.dart';
-=======
 import 'package:app/src/providers/usuario_provider.dart';
 import 'package:app/src/utils/utils.dart';
->>>>>>> Robayo
 import 'package:flutter/material.dart';
 import 'package:app/src/bloc/provider.dart';
 

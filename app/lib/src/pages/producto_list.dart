@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:comerciantes/src/bloc/provider.dart';
-import 'package:comerciantes/src/models/producto_model.dart';
-import 'package:comerciantes/src/providers/productos_provider.dart';
-=======
 import 'package:app/src/bloc/provider.dart';
 import 'package:app/src/models/producto_model.dart';
 
 import 'package:app/src/providers/productos_provider.dart';
->>>>>>> Robayo
 
 class ProductoListPage extends StatelessWidget {
   static const int dualPanelBreakpoint = 600;
