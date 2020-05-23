@@ -1,3 +1,5 @@
+import 'package:app/src/pages/calendar_page.dart';
+import 'package:app/src/pages/calendario_page.dart';
 import 'package:app/src/pages/patrocinados_page.dart';
 import 'package:app/src/pages/perfil_page.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +38,9 @@ class MyApp extends StatelessWidget {
           'Eventos'          : ( BuildContext context ) => ValidadorEvento(),
           'Productos'        : ( BuildContext context ) => ValidadorProducto(),
           'Perfil'           : ( BuildContext context ) => PerfilPage(),
-          'ListaPa'          : ( BuildContext context ) => InputPage()
+          'ListaPa'          : ( BuildContext context ) => InputPage(),
+          'calendario'       : ( BuildContext context ) => CalendarioPage(),        
+          'calendar'         : ( BuildContext context ) => CalendarPage(),
         },
         theme: ThemeData(
           primaryColor: Colors.deepPurple,

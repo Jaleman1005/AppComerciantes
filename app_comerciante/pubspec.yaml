@@ -32,7 +32,11 @@ dependencies:
   http:
   image_picker: ^0.6.4
   mime_type:
-
+  provider: ^4.1.2
+  table_calendar: ^2.2.3
+  implicitly_animated_reorderable_list: ^0.2.1
+  drag_list: ^1.0.8
+  grouped_list: ^3.1.0
 
 dev_dependencies:
   flutter_test:

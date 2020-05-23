@@ -1,3 +1,4 @@
+import 'package:app/src/pages/calendario_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/src/pages/evento_list.dart';
@@ -35,7 +36,7 @@ class _ItemValidadorEventoState extends State<ValidadorEvento> {
     return Row(
       children: <Widget>[
         Flexible(
-          flex: 1,
+          flex: 2,
           child: Material(
             elevation: 4.0,
             child: EventoListPage()
@@ -43,7 +44,7 @@ class _ItemValidadorEventoState extends State<ValidadorEvento> {
           ),
         Flexible(
           flex: 3,
-          child: EventoPage()
+          child: CalendarioPage()
         ),
       ],
     );

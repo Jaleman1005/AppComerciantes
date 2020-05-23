@@ -162,7 +162,7 @@ class RegistroPage extends StatelessWidget {
   _register(LoginBloc bloc, BuildContext context) {
 
     usuarioProvider.nuevoUsuario(bloc.email, bloc.password);
-
+    _mostrarAlert(context);
     //Navigator.pushReplacementNamed(context, 'home');
 
   }
@@ -216,6 +216,40 @@ class RegistroPage extends StatelessWidget {
         )
 
       ],
+    );
+
+  }
+
+
+  void _mostrarAlert(BuildContext context) {
+
+    showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+
+        return AlertDialog(
+          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20.0) ),
+          title: Text('Registo Exitoso'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('El registro fue realizado satisfactoriamente'),
+              FlutterLogo( size: 100.0 )
+            ],
+          ),
+          actions: <Widget>[           
+            FlatButton(
+              child: Text('Ingresar'),
+              onPressed: (){
+                Navigator.popAndPushNamed(context, 'home');
+              },
+            ),
+          ],
+        );
+
+      }
+
     );
 
   }

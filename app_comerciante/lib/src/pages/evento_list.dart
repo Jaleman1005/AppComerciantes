@@ -5,20 +5,13 @@ import 'package:app/src/providers/evento_provider.dart';
 
 class EventoListPage extends StatelessWidget {
   
-  static const int dualPanelBreakpoint = 600;
+
   final eventosProvider = new EventosProvider();
   
   String temp;
   @override
   Widget build(BuildContext context) {
 
-    final bloc = Provider.of(context);
-    var shortestSide = MediaQuery.of(context).size.shortestSide;
-    if (shortestSide < dualPanelBreakpoint) {
-      temp = 'evento';
-    } else {
-      temp = 'Eventos';
-    }
 
     return Scaffold(
       appBar: AppBar(
@@ -80,7 +73,7 @@ class EventoListPage extends StatelessWidget {
                children: <Widget>[
                  FlatButton(
                    child:Text('${ evento.nombre }'),
-                   onPressed: () => Navigator.pushNamed(context, temp, arguments: evento ),
+                   onPressed: () => Navigator.pushNamed(context, 'evento', arguments: evento ),
                    padding: EdgeInsets.all(10.0),
                    color: Colors.green,                                      
                    textColor: Colors.white,

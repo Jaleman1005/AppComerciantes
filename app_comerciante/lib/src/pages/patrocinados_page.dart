@@ -1,158 +1,56 @@
+import 'package:drag_list/drag_list.dart';
 import 'package:flutter/material.dart';
 
+
 class InputPage extends StatelessWidget {
+  final _itemHeight = 72.0;
+
   @override
   Widget build(BuildContext context) {
-    final title = 'Eventos patrocinados';
-    return MaterialApp(
-      title: title,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text(title),
-          actions: <Widget>[
-            FlatButton(
-                   child:Row(
-                     children: <Widget>[                                                     
-                       Icon(Icons.arrow_back, color: Colors.white)
-                     ],
-                   ),
-                   onPressed: () => Navigator.pop(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
+    return Scaffold(
+        appBar: AppBar(title: Text('Eventos Patrocinados')),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: DragList<String>(
+            items: _countries,
+            itemExtent: _itemHeight,
+            handleBuilder: (_) => AnimatedIcon(
+              icon: AnimatedIcons.menu_arrow,
+              progress: AlwaysStoppedAnimation(0.0),
             ),
-          ],
-        ),
-        body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(15.0),
-          child: Form(            
-            child: Column(
-              children: <Widget>[
-                _patrocinados(context),                         
-                _crearBoton(context),                
-              ],
+            feedbackHandleBuilder: (_, transition) => AnimatedIcon(
+              icon: AnimatedIcons.menu_arrow,
+              progress: transition,
+            ),
+            itemBuilder: (_, item, handle) => Container(
+              height: _itemHeight,
+              margin: const EdgeInsets.symmetric(vertical:10.0),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              decoration: BoxDecoration(              
+                border: Border.all(
+                  color: Colors.deepPurple,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Padding(
+                padding: EdgeInsets.all(8.0),                
+                child: Row(
+                  children: [
+                  Expanded(child: Center(child: Text(item.value))),handle,                  
+                ]),
+              ),
             ),
           ),
-        ),
-      ),
-      ),
+        ),      
     );
   }
 
-  Widget _patrocinados(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(                
-        border: Border.all(
-          color: Colors.deepPurple,
-          width: 2,
-        ),
-        borderRadius: BorderRadius.circular(12),
-      ),
-       child: Column(
-         children: <Widget>[           
-             FlatButton(
-                   child:Row(
-                     children: <Widget>[                       
-                       Text('Artesania Rurales                                        ', textScaleFactor: 1.2,),                                  
-                       Icon(Icons.delete)
-                     ],
-                   ),
-                   onPressed: () => _mostrarAlert(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
-            ),
-            FlatButton(
-                   child:Row(
-                     children: <Widget>[                       
-                       Text('Artesania Rurales                                        ', textScaleFactor: 1.2,),                                  
-                       Icon(Icons.delete)
-                     ],
-                   ),
-                   onPressed: () => _mostrarAlert(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
-            ),
-            FlatButton(
-                   child:Row(
-                     children: <Widget>[                       
-                       Text('Artesania Rurales                                        ', textScaleFactor: 1.2,),                                  
-                       Icon(Icons.delete)
-                     ],
-                   ),
-                   onPressed: () => _mostrarAlert(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
-            ),
-            FlatButton(
-                   child:Row(
-                     children: <Widget>[                       
-                       Text('Artesania Rurales                                        ', textScaleFactor: 1.2,),                                  
-                       Icon(Icons.delete)
-                     ],
-                   ),
-                   onPressed: () => _mostrarAlert(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
-            ),
-            FlatButton(
-                   child:Row(
-                     children: <Widget>[                       
-                       Text('Artesania Rurales                                        ', textScaleFactor: 1.2,),                                  
-                       Icon(Icons.delete)
-                     ],
-                   ),
-                   onPressed: () => _mostrarAlert(context),
-                   padding: EdgeInsets.all(10.0),                   //color: Colors.green,                                                         //textColor: Colors.white,
-            ),
-
-           
-         ],
-       )
-    );
-  }
-
-  void _mostrarAlert(BuildContext context) {
-
-    showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-
-        return AlertDialog(
-          shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(20.0) ),
-          title: Text('Estas seguro de eliminar el evento'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text('Gracias por apoyarnos sera en una proxima oportunidad'),
-              //FlutterLogo( size: 100.0 )
-            ],
-          ),
-          actions: <Widget>[
-            FlatButton(
-              child: Text('Cancelar'),
-              onPressed: ()=> Navigator.of(context).pop(),
-            ),
-            FlatButton(
-              child: Text('Ok'),
-              onPressed: (){
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-
-      }
-
-    );
-
-  }
-
-  Widget _crearBoton(BuildContext context) {
-    return RaisedButton.icon(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0)
-      ),
-      color: Colors.green,
-      textColor: Colors.white,
-      label: Text('Guardar Cambios'),
-      icon: Icon( Icons.save ),
-      onPressed: ( ) => Navigator.pop(context)
-    );
-  }
+  final _countries = [
+    'Artesanias Rurales',
+    'Comida Tipica',
+    'Ensaladas de la region',
+    'Utilidades del cafe',
+    'De la plaza a tu mesa',
+  ];
 }

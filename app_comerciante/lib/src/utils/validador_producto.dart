@@ -1,3 +1,4 @@
+import 'package:app/src/pages/calendario_page.dart';
 import 'package:flutter/material.dart';
 
 import 'package:app/src/pages/producto_list.dart';
@@ -35,15 +36,15 @@ class _ItemValidadorProductoState extends State<ValidadorProducto> {
     return Row(
       children: <Widget>[
         Flexible(
-          flex: 1,
+          flex: 2,
           child: Material(
-            elevation: 4.0,
+            elevation: 10.0,
             child: ProductoListPage()
             ),
           ),
         Flexible(
           flex: 3,
-          child: ProductoPage()
+          child: CalendarioPage()
         ),
       ],
     );
